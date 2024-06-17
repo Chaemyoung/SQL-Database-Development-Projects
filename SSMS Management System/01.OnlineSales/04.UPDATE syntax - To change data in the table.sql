@@ -5,4 +5,4 @@ WHERE CustomerId = 1
 
 -- In the Customer table set the value for the column EmailAddress to 'Not Provided' for all the records.
 UPDATE Customer
-SET EmailAddress = 'NotProvided'
+SET EmailAddress = 'Not Provided'
