@@ -84,10 +84,8 @@ CREATE TABLE Books (
     PublishDate DATE,
     BookStatusId VARCHAR(255),
     BookTitle VARCHAR(255),
-    BorrowId BIGINT,
     FOREIGN KEY (AuthorId) REFERENCES Authors(AuthorId),
-    FOREIGN KEY (BookStatusId) REFERENCES BooksStatus(BookStatusId),
-    FOREIGN KEY (BorrowId) REFERENCES Borrows
+    FOREIGN KEY (BookStatusId) REFERENCES BooksStatus(BookStatusId)
 );
 
 -- Returns Table
