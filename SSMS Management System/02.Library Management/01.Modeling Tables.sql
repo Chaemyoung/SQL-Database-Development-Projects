@@ -37,6 +37,8 @@ CREATE TABLE Staffs (
     DOB DATE,
     SexTypeId VARCHAR(255),
     StaffStatusId VARCHAR(255),
+    WorkShiftStart TIME,
+    WorkShiftEnd TIME,
     FOREIGN KEY (SexTypeId) REFERENCES Sex(SexTypeId),
     FOREIGN KEY (StaffStatusId) REFERENCES StaffStatus(StaffStatusId)
 )
@@ -69,7 +71,7 @@ CREATE TABLE Borrows (
     StaffId BIGINT,
     BorrowDate DATE,
     DateNeedToReturn DATE,
-    BorrowedNumber INT,
+    NumberOfBooksBorrowed INT,
     MaxBorrowLimitId BIGINT,
     FOREIGN KEY (CustomerId) REFERENCES Customers(CustomerId),
     FOREIGN KEY (StaffId) REFERENCES Staffs(StaffId),
