@@ -100,17 +100,38 @@ FROM Borrows b INNER JOIN Returns r ON b.BorrowId = r.BorrowId
 ORDER BY b.BorrowId
 
 /* Track fine payments made by customers. */
-SELECT * FROM Customers
-SELECT * FROM Borrows
-SELECT * FROM Books
-SELECT * FROM Authors
-SELECT * FROM Returns
-SELECT * FROM Staffs
-SELECT * FROM MaxBorrowLimits
-SELECT * FROM CustomerStatus
-
-/* Analyze the growth of the library's collection over time. */
-
+SELECT c.CustomerId, CONCAT(c.CusFirstName, ' ', c.CusLastName) AS CustomerName, fp.PaymentDate, fp.Amount
+FROM Customers c
+JOIN FinePayments fp ON c.CustomerId = fp.CustomerId
+ORDER BY fp.PaymentDate DESC
 
 /* Analyze the demographics of library staff. */
+-- Query to analyze gender distribution of library staff
+SELECT s.SexName, COUNT(*) AS SexDistribution
+FROM Sex s INNER JOIN Staffs st ON s.SexTypeId = st.SexTypeId
+GROUP BY s.SexName
 
+-- Query to analyze employment status of library staff
+SELECT ss.Status, COUNT(*) AS EmploymentStatus
+FROM Staffs st INNER JOIN StaffStatus ss ON st.StaffStatusId = ss.StaffStatusId
+GROUP BY ss.Status
+
+-- Query to analyze age distribution of library staff
+SELECT 
+    CASE 
+        WHEN DATEDIFF(YEAR, st.DOB, GETDATE()) < 30 THEN 'Less then 30 years old!'
+        WHEN DATEDIFF(YEAR, st.DOB, GETDATE()) BETWEEN 30 AND 39 THEN '30 - 39!'
+        WHEN DATEDIFF(YEAR, st.DOB, GETDATE()) BETWEEN 40 AND 49 THEN '40 - 49!'
+        WHEN DATEDIFF(YEAR, st.DOB, GETDATE()) BETWEEN 50 AND 59 THEN '50 - 59!'
+        ELSE '60 Above'
+    END AS AgeGroup, COUNT(*) AS AgeCount
+FROM Staffs st
+GROUP BY 
+    CASE 
+        WHEN DATEDIFF(YEAR, st.DOB, GETDATE()) < 30 THEN 'Less then 30 years old!'
+        WHEN DATEDIFF(YEAR, st.DOB, GETDATE()) BETWEEN 30 AND 39 THEN '30 - 39!'
+        WHEN DATEDIFF(YEAR, st.DOB, GETDATE()) BETWEEN 40 AND 49 THEN '40 - 49!'
+        WHEN DATEDIFF(YEAR, st.DOB, GETDATE()) BETWEEN 50 AND 59 THEN '50 - 59!'
+        ELSE '60 Above'
+    END
+ORDER BY AgeCount DESC
