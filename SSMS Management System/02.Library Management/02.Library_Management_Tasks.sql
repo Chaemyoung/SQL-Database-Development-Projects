@@ -65,7 +65,9 @@ FROM Borrows br INNER JOIN Books b ON br.BookId = b.BookId
 WHERE MONTH(GETDATE()) = MONTH(br.DateNeedToReturn)
 
 /* Generate a schedule of staff shifts. */
-
+SELECT st.StaffId, CONCAT(st.StaffFirstName, ' ', st.StaffLastName) AS StaffFullName, st.WorkShiftStart, st.WorkShiftEnd
+FROM Staffs st
+ORDER BY StaffFullName
 
 /* Verify compliance with borrow limits. */
 SELECT CONCAT(cus.CusFirstName, ' ', cus.CusLastName) AS CusFullName, (m.MaxBorrowNumber - br.BorrowedNumber) AS availableNumOfBorrowLimit
