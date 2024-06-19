@@ -96,7 +96,7 @@ CREATE TABLE Returns (
     ReturnId BIGINT PRIMARY KEY,
     BorrowId BIGINT,
     ReturnDate DATE,
-    Fine DECIMAL(10, 2),
+    Fine DECIMAL(8, 2),
     FOREIGN KEY (BorrowId) REFERENCES Borrows(BorrowId)
 )
 
@@ -105,6 +105,6 @@ CREATE TABLE FinePayments (
     PaymentId BIGINT PRIMARY KEY,
     CustomerId BIGINT,
     PaymentDate DATE,
-    Amount DECIMAL(10, 2),
+    Amount DECIMAL(8, 2),
     FOREIGN KEY (CustomerId) REFERENCES Customers(CustomerId)
 )
