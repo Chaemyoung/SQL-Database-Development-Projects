@@ -84,6 +84,7 @@ CREATE TABLE Books (
     PublishDate DATE,
     BookStatusId VARCHAR(255),
     BookTitle VARCHAR(255),
+    Genre VARCHAR(20),
     FOREIGN KEY (AuthorId) REFERENCES Authors(AuthorId),
     FOREIGN KEY (BookStatusId) REFERENCES BooksStatus(BookStatusId)
 );
@@ -93,5 +94,6 @@ CREATE TABLE Returns (
     ReturnId BIGINT PRIMARY KEY,
     BorrowId BIGINT,
     ReturnDate DATE,
+    Fine DECIMAL(10, 2),
     FOREIGN KEY (BorrowId) REFERENCES Borrows(BorrowId)
 );
