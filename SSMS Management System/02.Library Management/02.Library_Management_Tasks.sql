@@ -16,19 +16,20 @@ FROM Customers c INNER JOIN Borrows br ON c.CustomerId = br.CustomerId
 INNER JOIN Books b ON br.BookId = b.BookId
 WHERE br.DateNeedToReturn < GETDATE() AND br.BorrowId NOT IN (SELECT BorrowId FROM Returns);
 
-
 /* Generate a borrowing history for a specific customer. */
 SELECT CONCAT(cus.CusFirstName, ' ', cus.CusLastName) AS CusFullName, b.BookTitle, CONCAT(a.AuthorFirstName, ' ', a.AuthorLastName) AS AuthorFullName, br.BorrowDate, r.ReturnDate
 FROM Customers cus INNER JOIN Borrows br ON cus.CustomerId = br.CustomerId
 INNER JOIN Books b ON br.BookId = b.BookId
-INNER JOIN Authors a ON b.AuthorId = a.AuthorId
+INNER JOIN Writes w ON b.BookId = w.BookId
+INNER JOIN Authors a ON w.AuthorId = a.AuthorId
 INNER JOIN Returns r ON br.BorrowId = r.BorrowId
-WHERE cus.CustomerId = 2
+WHERE cus.CustomerId = 3
 
 /* Identify the most popular authors based on the number of times their books have been borrowed. */
 SELECT CONCAT(a.AuthorFirstName, ' ', a.AuthorLastName) AS AuthorFullName, COUNT(br.BookId) AS BorrowCount
 FROM Borrows br INNER JOIN Books b ON br.BookId = b.BookId
-INNER JOIN Authors a ON b.AuthorId = a.AuthorId
+INNER JOIN Writes w ON b.BookId = w.BookId
+INNER JOIN Authors a ON w.AuthorId = a.AuthorId
 GROUP BY a.AuthorFirstName, a.AuthorLastName
 ORDER BY BorrowCount DESC
 
