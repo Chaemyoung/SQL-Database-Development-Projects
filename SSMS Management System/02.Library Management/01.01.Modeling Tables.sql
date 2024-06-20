@@ -81,14 +81,21 @@ CREATE TABLE Borrows (
 -- Books Table
 CREATE TABLE Books (
     BookId BIGINT PRIMARY KEY,
-    AuthorId BIGINT,
     ISBN BIGINT,
     PublishDate DATE,
     BookStatusId VARCHAR(255),
     BookTitle VARCHAR(255),
     Genre VARCHAR(20),
-    FOREIGN KEY (AuthorId) REFERENCES Authors(AuthorId),
     FOREIGN KEY (BookStatusId) REFERENCES BooksStatus(BookStatusId)
+)
+
+-- Writes table
+CREATE TABLE Writes (
+    BookId BIGINT,
+    AuthorId BIGINT,
+    PRIMARY KEY (BookId, AuthorId),
+    FOREIGN KEY (BookId) REFERENCES Books(BookId),
+    FOREIGN KEY (AuthorId) REFERENCES Authors(AuthorId)
 )
 
 -- Returns Table
@@ -100,7 +107,7 @@ CREATE TABLE Returns (
     FOREIGN KEY (BorrowId) REFERENCES Borrows(BorrowId)
 )
 
--- Create FinePayments table
+-- FinePayments table
 CREATE TABLE FinePayments (
     PaymentId BIGINT PRIMARY KEY,
     CustomerId BIGINT,
