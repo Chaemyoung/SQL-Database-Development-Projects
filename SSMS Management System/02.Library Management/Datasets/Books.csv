@@ -1,0 +1,31 @@
+BookId,BorrowId,ISBN,PublishDate,BookStatusId,BookTitle,Genre
+1,1,9.78014E+12,2014-10-14,1,The Goldfinch,Novel
+2,2,9.78074E+12,2004-10-17,1,The Da Vinci Code,Mystery
+3,3,9.78006E+12,2008-04-22,1,The Alchemist,Fiction
+4,4,9.78074E+12,2016-07-19,1,The Girl on the Train,Thriller
+5,5,9.78006E+12,1991-05-23,1,To Kill a Mockingbird,Classic
+6,6,9.78148E+12,2016-07-19,1,Harry Potter and the Cursed Child,Fantasy
+7,7,9.78146E+12,2015-06-16,1,The Martian,Science Fiction
+8,8,9.78014E+12,2002-11-30,1,1984,Dystopian
+9,9,9.7814E+12,1997-09-15,1,The God of Small Things,Contemporary Literature
+10,10,9.78031E+12,2008-07-26,1,The Road,Dystopian
+11,11,9.78145E+12,2011-08-30,1,Bossypants,Humor
+12,12,9.78142E+12,2014-10-14,1,The Princess in Black,Children's Literature
+13,13,9.78134E+12,2016-07-31,1,Harry Potter and the Cursed Child Parts One and Two,Fantasy
+14,14,9.78148E+12,2016-06-28,1,Me Before You,Romance
+15,15,9.78125E+12,2012-09-18,1,Gone Girl,Psychological Thriller
+16,16,9.78055E+12,1953-08-01,1,Fahrenheit 451,Dystopian
+17,17,9.78006E+12,2011-02-01,1,Room,Drama
+18,18,9.78081E+12,1997-09-01,1,Harry Potter and the Sorcerer's Stone,Fantasy
+19,19,9.78031E+12,2009-10-12,1,The Help,Historical Fiction
+20,20,9.7815E+12,2018-09-25,1,The Outsider,Horror
+21,21,9.7814E+12,2010-05-25,1,The Girl with the Dragon Tattoo,Mystery
+22,22,9.78006E+12,2012-05-22,1,Divergent,Dystopian
+23,23,9.78142E+12,2005-05-03,1,Eragon,Fantasy
+24,24,9.78152E+12,2018-01-09,1,Fire and Fury: Inside the Trump White House,Non-Fiction
+25,25,9.78055E+12,2013-09-24,1,Allegiant,Dystopian
+26,26,9.78028E+12,2009-10-15,1,The Lost Symbol,Mystery
+27,27,9.78006E+12,2016-04-05,1,The Nest,Family Drama
+28,28,9.78125E+12,2017-02-21,1,The Handmaid's Tale,Dystopian
+29,29,9.78198E+12,2019-08-27,1,The Institute,Science Fiction
+30,30,9.7814E+12,2004-09-21,1,The Kite Runner,Literary Fiction

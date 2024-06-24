@@ -1,0 +1,4 @@
+BookStatusId,Status
+1,Available
+2,Reserved
+3,CheckedOut
