@@ -7,7 +7,6 @@ Compliation of SQL Database Development Projects. These are the skills I practic
 - drawSQL (ERD)
 
 # Projects
-## Library Management System
 
 ### Library Management System
 
@@ -22,3 +21,6 @@ Key functionalities include:
 - Analyzing customer demographics and borrowing habits.
 - Assessing book return timeliness and tracking fine payments.
 - etc.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
