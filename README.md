@@ -7,7 +7,7 @@ Compliation of SQL Database Development Projects. These are the skills I practic
 - drawSQL (ERD)
 
 # Projects
-
+## SSMS Management Systems
 ### Library Management System
 
 This Library Management System is designed to streamline library operations and empower data-driven decision making. It offers functionalities to manage books, staff, customer, borrowing/returning, finances, and analyze library usage patterns.
