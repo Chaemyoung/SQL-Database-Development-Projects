@@ -1,0 +1,10 @@
+--1) List all train details including the number of coaches.
+--2) Retrieve the schedule for a specific train type.
+--3) Find all passengers with passes expiring in the next month.
+--4) Calculate the number of passengers traveling on each train.
+--5) List all routes along with their departure and arrival times.
+--6) Find the busiest station based on the number of departures.
+--7) List all passes purchased within a specific date range.
+--8) Find the most popular route based on the number of passes issued.
+--9) List all trains that have fewer than a specific number of coaches.
+--10) Retrieve the details of the train type with the most trains.
