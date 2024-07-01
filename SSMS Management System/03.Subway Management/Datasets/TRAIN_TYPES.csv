@@ -1,0 +1,4 @@
+TRAIN_TYPE_ID,TRAIN_TYPE
+1,Passenger
+2,Cargo
+3,High-Speed
