@@ -1,0 +1,31 @@
+STATION_ID,STATION_STREET,STATION_CITY,PROVINCE,POSTAL_CODE,STATION_NAME
+1,Main Street,New York,New York,10001,Grand Central Station
+2,Elm Avenue,Los Angeles,California,90001,Union Station
+3,Market Boulevard,Chicago,Illinois,60601,Chicago Union Station
+4,Pine Road,San Francisco,California,94101,Caltrain Station
+5,Highway 10,Miami,Florida,33101,Miami Central Station
+6,Broadway Street,Seattle,Washington,98101,King Street Station
+7,Oak Lane,Dallas,Texas,75201,Dallas Union Station
+8,First Avenue,Denver,Colorado,80202,Union Station Denver
+9,West Street,Atlanta,Georgia,30301,Atlantic Station
+10,Maple Drive,Boston,Massachusetts,2101,South Station
+11,Parkway Drive,Phoenix,Arizona,85001,Phoenix Union Station
+12,Grand Boulevard,Philadelphia,Pennsylvania,19101,30th Street Station
+13,Main Street,Houston,Texas,77001,Grand Central Station
+14,Elm Street,Detroit,Michigan,48201,Michigan Central Station
+15,Market Street,Minneapolis,Minnesota,55401,Union Depot
+16,Ocean Avenue,San Diego,California,92101,San Diego Union Station
+17,Mountain Road,Tampa,Florida,33602,Tampa Union Station
+18,Lakeside Drive,Portland,Oregon,97201,Union Station
+19,Sunset Boulevard,Charlotte,North Carolina,28202,Charlotte Station
+20,Valley Road,Las Vegas,Nevada,89101,Union Plaza
+21,Park Street,Washington,D.C.,20001,Union Station D.C.
+22,Riverwalk Drive,New Orleans,Louisiana,70112,Union Passenger Terminal
+23,Meadow Lane,Seattle,Washington,98101,King Street Station
+24,Westwood Avenue,San Francisco,California,94101,Caltrain Station
+25,Springfield Avenue,Chicago,Illinois,60601,Chicago Union Station
+26,Pine Street,Denver,Colorado,80202,Union Station Denver
+27,Hamilton Lane,Miami,Florida,33101,Miami Central Station
+28,Church Street,Charlotte,North Carolina,28202,Charlotte Station
+29,Crescent Drive,Dallas,Texas,75201,Dallas Union Station
+30,Liberty Avenue,Boston,Massachusetts,2101,South Station
