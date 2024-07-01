@@ -1,0 +1,31 @@
+ROUTE_ID,DEPARTURE_TIME,ARRIVAL_TIME,ROUTE_NAME
+1,8:00:00,10:00:00,Express Line
+2,9:30:00,11:45:00,Local Loop
+3,11:15:00,13:30:00,Commuter Special
+4,13:00:00,15:15:00,Transit Hub
+5,15:30:00,17:45:00,Shuttle Service
+6,17:00:00,19:15:00,Metro Path
+7,18:45:00,20:30:00,Rapid Transit
+8,20:15:00,22:00:00,Intercity Express
+9,6:30:00,8:15:00,City Connect
+10,7:45:00,9:45:00,Coastal Explorer
+11,10:00:00,12:00:00,Highland Express
+12,12:30:00,14:30:00,Mountain Trail
+13,14:00:00,16:00:00,Valley Voyager
+14,16:30:00,18:30:00,Island Hopper
+15,18:00:00,20:00:00,Desert Explorer
+16,19:45:00,21:45:00,Prairie Runner
+17,21:15:00,23:00:00,Lakeside Line
+18,7:00:00,9:30:00,Rural Connection
+19,8:45:00,10:45:00,Harbor Service
+20,11:30:00,13:15:00,Golden Gate Route
+21,13:45:00,15:45:00,Sunset Journey
+22,15:00:00,17:00:00,Moonlight Express
+23,17:30:00,19:30:00,Starlight Passage
+24,19:00:00,21:00:00,Oceanic Route
+25,21:45:00,23:45:00,Grand Voyage
+26,6:15:00,8:00:00,Dawn Departure
+27,8:30:00,10:45:00,Evening Express
+28,10:45:00,12:45:00,Night Rider
+29,12:00:00,14:00:00,Sunrise Service
+30,14:30:00,16:30:00,Midday Wanderer
