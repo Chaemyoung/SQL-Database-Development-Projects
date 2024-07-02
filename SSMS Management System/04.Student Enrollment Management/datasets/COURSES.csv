@@ -1,0 +1,31 @@
+COURSE_ID,COURSE_TITLE,COURSE_CDN,COURSE_START_DATE,COURSE_END_DATE,INS_ID
+1,"""Introduction to Programming""","""CS101""","""2022-01-10""","""2022-03-15""",1001
+2,"""Data Structures and Algorithms""","""CS201""","""2022-02-05""","""2022-04-20""",1002
+3,"""Database Management""","""CS301""","""2022-03-15""","""2022-06-10""",1003
+4,"""Web Development Basics""","""CS401""","""2022-04-01""","""2022-06-30""",1004
+5,"""Machine Learning Fundamentals""","""CS501""","""2022-05-10""","""2022-08-15""",1005
+6,"""Cybersecurity Essentials""","""CS601""","""2022-06-07""","""2022-09-20""",1006
+7,"""Software Engineering Principles""","""CS701""","""2022-07-15""","""2022-10-30""",1007
+8,"""Cloud Computing Fundamentals""","""CS801""","""2022-08-20""","""2022-12-10""",1008
+9,"""Mobile App Development""","""CS901""","""2022-09-10""","""2022-12-31""",1009
+10,"""Blockchain Technology""","""CS1001""","""2022-10-05""","""2023-01-15""",1010
+11,"""Artificial Intelligence Concepts""","""CS1101""","""2022-11-01""","""2023-02-20""",1011
+12,"""IoT Fundamentals""","""CS1201""","""2022-12-07""","""2023-03-10""",1012
+13,"""Data Analytics Techniques""","""CS1301""","""2023-01-10""","""2023-04-15""",1013
+14,"""Computer Networks Essentials""","""CS1401""","""2023-02-15""","""2023-06-20""",1014
+15,"""Information Security Management""","""CS1501""","""2023-03-01""","""2023-07-31""",1015
+16,"""UX/UI Design Principles""","""CS1601""","""2023-04-05""","""2023-09-10""",1016
+17,"""Big Data Fundamentals""","""CS1701""","""2023-05-10""","""2023-10-20""",1017
+18,"""Programming Languages Overview""","""CS1801""","""2023-06-15""","""2023-11-30""",1018
+19,"""Embedded Systems Basics""","""CS1901""","""2023-07-20""","""2023-12-15""",1019
+20,"""Computer Vision Fundamentals""","""CS2001""","""2023-08-25""","""2024-01-31""",1020
+21,"""Software Testing Techniques""","""CS2101""","""2023-09-30""","""2024-02-20""",1021
+22,"""Network Security Fundamentals""","""CS2201""","""2023-10-15""","""2024-03-31""",1022
+23,"""Cloud Security Concepts""","""CS2301""","""2023-11-20""","""2024-05-10""",1023
+24,"""Game Development Basics""","""CS2401""","""2023-12-25""","""2024-06-30""",1024
+25,"""Python Programming Essentials""","""CS2501""","""2024-01-10""","""2024-08-15""",1025
+26,"""AI Ethics and Society""","""CS2601""","""2024-02-15""","""2024-10-20""",1026
+27,"""Data Visualization Techniques""","""CS2701""","""2024-03-20""","""2024-11-30""",1027
+28,"""Web Security Fundamentals""","""CS2801""","""2024-04-25""","""2024-12-31""",1028
+29,"""Agile Development Principles""","""CS2901""","""2024-05-30""","""2025-01-31""",1029
+30,"""DevOps Fundamentals""","""CS3001""","""2024-07-05""","""2025-03-10""",1030
