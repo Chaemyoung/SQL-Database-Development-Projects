@@ -1,0 +1,93 @@
+SELECT * FROM PATIENTS
+SELECT * FROM ROOMS
+SELECT * FROM DOCTORS
+SELECT * FROM ROOMS
+
+ALTER TABLE APPOINTMENT
+ADD DOC_ID BIGINT NOT NULL
+
+ALTER TABLE DOCTORS
+ADD CONSTRAINT FK_DOC_ID
+FOREIGN KEY (DOC_ID) REFERENCES DOCTORS(DOC_ID);
+
+--1) List all patients along with their assigned room details and the doctors treating them.
+SELECT CONCAT(p.PAT_FNAME, ' ', p.PAT_LNAME) AS PAT_FULLNAME, CONCAT(d.DOC_FNAME, ' ', d.DOC_LNAME) AS DOC_FULLNAME, r.ROOM_TYPE, r.ROOM_CAPACITY, r.ROOM_AVAILABILITY 
+FROM PATIENTS p 
+INNER JOIN DOCTORS_PATIENTS dp ON p.PAT_ID = dp.PAT_ID
+INNER JOIN DOCTORS d ON dp.DOC_ID = d.DOC_ID 
+INNER JOIN ROOMS r ON p.ROOM_ID = r.ROOM_ID
+
+
+--2) Retrieve the schedule (appointments) for a specific doctor, including patient names and appointment details.
+SELECT CONCAT(p.PAT_FNAME, ' ', p.PAT_LNAME) AS PAT_FULLNAME, CONCAT(d.DOC_FNAME, ' ', d.DOC_LNAME) AS DOC_FULLNAME, a.APP_DATE, CONCAT(a.APP_START_TIME, ' ', a.APP_END_TIME) AS APP_TIME
+FROM DOCTORS d
+INNER JOIN APPOINTMENTS a ON d.DOC_ID = a.DOC_ID
+INNER JOIN PATIENTS_APPOINTMENTS pa ON a.APP_ID = pa.APP_ID
+INNER JOIN PATIENTS p ON pa.PAT_ID = p.PAT_ID
+WHERE d.DOC_ID = 1
+
+
+--3) Find the total number of patients treated by each doctor within a specific date range.
+SELECT CONCAT(d.DOC_FNAME, ' ', d.DOC_LNAME) AS DOC_FULLNAME, COUNT(a.APP_ID) AS TOTAL_NUM_OF_APP
+FROM DOCTORS d
+INNER JOIN APPOINTMENTS a ON d.DOC_ID = a.DOC_ID
+WHERE a.APP_DATE BETWEEN '2023-01-01' AND '2024-12-31'
+GROUP BY CONCAT(d.DOC_FNAME, ' ', d.DOC_LNAME)
+
+
+--4) List all nurses assigned to a specific department in a hospital.
+SELECT CONCAT(n.NUR_FNAME, ' ', n.NUR_LNAME) AS NUR_FULLNAME, dep.DEPT_NAME
+FROM NURSES n 
+INNER JOIN DEPARTMENTS dep ON n.DEPT_ID = dep.DEPT_ID
+WHERE dep.DEPT_ID = 1
+
+
+--5) Calculate the total billing amount for each patient.
+SELECT CONCAT(p.PAT_FNAME, ' ', p.PAT_LNAME) AS PAT_FULLNAME, SUM(b.BILL_AMOUNT) AS TOTAL_BILL_AMOUNT
+FROM PATIENTS p
+INNER JOIN BILLS b ON p.PAT_ID = b.PAT_ID
+GROUP BY CONCAT(p.PAT_FNAME, ' ', p.PAT_LNAME)
+
+
+--6) Identify the most frequently prescribed medications and the number of patients receiving each medication.
+SELECT m.MED_NAME, SUM(p.PAT_ID) AS NUM_OF_PAT
+FROM MEDICATIONS m
+INNER JOIN PATIENT_MEDICATIONS pm ON m.MED_ID = pm.MED_ID
+INNER JOIN PATIENTS p ON pm.PAT_ID = p.PAT_ID
+GROUP BY m.MED_NAME
+
+
+--7) Retrieve the appointment history for a specific patient, including the dates, times, and doctors seen.
+SELECT CONCAT(p.PAT_FNAME, ' ', p.PAT_LNAME) AS PAT_FULLNAME, CONCAT(d.DOC_FNAME, ' ', d.DOC_LNAME) AS DOC_FULLNAME, a.APP_DATE, CONCAT(a.APP_START_TIME, ' ', a.APP_END_TIME) AS APP_TIME
+FROM PATIENTS p 
+INNER JOIN PATIENTS_APPOINTMENTS pa ON p.PAT_ID = pa.PAT_ID 
+INNER JOIN APPOINTMENTS a ON pa.APP_ID = a.APP_ID
+INNER JOIN DOCTORS d ON a.DOC_ID = d.DOC_ID 
+WHERE p.PAT_ID = 1
+
+
+--8) Find the occupancy rate of each room in the hospital (i.e., how many beds are occupied vs. available).
+SELECT r.ROOM_CAPACITY, r.ROOM_AVAILABILITY, ROUND((r.ROOM_AVAILABILITY * 100.0 / r.ROOM_CAPACITY), 2) AS PERCENTAGE
+FROM ROOMS r
+
+
+--9) List all procedures performed on patients within a specific department, including the dates and responsible doctors.
+SELECT CONCAT(p.PAT_FNAME, ' ', p.PAT_LNAME) AS PAT_FULLNAME, prcd.PROC_NAME, prcd.PROC_DESCRIPTION, pp.PROCEDURE_DATE, CONCAT(d.DOC_FNAME, ' ', d.DOC_LNAME) AS DOC_FULLNAME, dept.DEPT_NAME
+FROM PATIENT_PROCEDURES pp
+INNER JOIN PROCEDURES prcd ON pp.PROC_ID = prcd.PROC_ID
+INNER JOIN PATIENTS p ON pp.PAT_ID = p.PAT_ID
+INNER JOIN DOCTORS_PATIENTS dp ON p.PAT_ID = dp.PAT_ID
+INNER JOIN DOCTORS d ON dp.DOC_ID = d.DOC_ID 
+INNER JOIN DEPARTMENTS dept ON d.DEPT_ID = dept.DEPT_ID 
+WHERE dept.DEPT_ID = 1
+
+
+--10) Generate a list of all hospitals along with the number of doctors, nurses, and patients in each hospital.
+SELECT h.HOS_NAME, COUNT(d.DOC_ID) AS DOC_AMOUNT, COUNT(n.NUR_ID) AS NUR_AMOUNT, COUNT(p.PAT_ID) AS PAT_AMOUNT
+FROM HOSPITALS h
+INNER JOIN DOCTORS d ON h.HOS_ID = d.HOS_ID
+INNER JOIN NURSES n ON h.HOS_ID = n.HOS_ID
+INNER JOIN DOCTORS_PATIENTS dp ON d.DOC_ID = dp.DOC_ID
+INNER JOIN PATIENTS p ON dp.PAT_ID = p.PAT_ID
+GROUP BY h.HOS_NAME
+
