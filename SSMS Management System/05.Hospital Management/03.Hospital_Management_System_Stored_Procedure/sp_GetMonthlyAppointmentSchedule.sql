@@ -1,3 +1,4 @@
+-- Create a stored procedure to retrieve the monthly appointment schedule for a specific doctor.
 CREATE OR ALTER PROCEDURE sp_GetMonthlyAppointmentSchedule
 	@Doc_Id BIGINT,
 	@Month INT, 
