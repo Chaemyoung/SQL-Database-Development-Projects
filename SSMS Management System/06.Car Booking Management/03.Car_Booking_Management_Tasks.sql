@@ -1,20 +1,36 @@
---1) Total payments made per customer
-SELECT c.FirstName, c.LastName, SUM(p.Amount) AS TotalPayment
-FROM Customer c
-INNER JOIN Booking b ON c.CustomerID = b.CustomerID
-JOIN Payment p ON b.BookingID = p.BookingID
-GROUP BY c.FirstName, c.LastName
+--1) To find the total payments made per customer
+SELECT cus.FirstName, cus.LastName, SUM(p.Amount) AS TotalPayment
+FROM Customer cus
+INNER JOIN Booking b ON cus.CustomerID = b.CustomerID
+INNER JOIN Payment p ON b.BookingID = p.BookingID
+GROUP BY cus.FirstName, cus.LastName
 
 
---2) Number ofbookings per car
+--2) To find the number of bookings per car
 SELECT c.Make, c.Model, COUNT(b.BookingID) AS NumberOfBookings
 FROM Car c
 INNER JOIN Booking b ON c.CarID = b.CarID
 GROUP BY c.Make, c.Model
 
 
---3) Total amount paid per booking date
+--3) To find the total amount paid per booking date
 SELECT b.BookingDate, SUM(p.Amount) AS TotalAmount
 FROM Booking b
 INNER JOIN Payment p ON b.BookingID = p.BookingID
-GROUP BY b.BookingDate;
+GROUP BY b.BookingDate
+
+
+-- 4) To find the list of cars available at each location
+SELECT l.LocationName, c.Make, c.Model, c.Year
+FROM Location l
+INNER JOIN Car c ON l.LocationID = c.LocationID
+ORDER BY l.LocationName, c.Make, c.Model
+
+
+-- 5) To find the number of bookings per location
+SELECT l.LocationName, COUNT(b.BookingID) AS NumberOfBookings
+FROM Location l
+INNER JOIN Car c ON l.LocationID = c.LocationID
+JOIN Booking b ON c.CarID = b.CarID
+GROUP BY l.LocationName
+
