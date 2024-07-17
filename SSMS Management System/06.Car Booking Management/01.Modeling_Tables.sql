@@ -1,3 +1,10 @@
+--- Create DATABASE 
+CREATE DATABASE CarBookingSystem
+GO
+USE CarBookingSystem
+GO
+
+
 -- Create Customer table
 CREATE TABLE Customer (
     CustomerID INT PRIMARY KEY IDENTITY(1,1),
@@ -5,6 +12,14 @@ CREATE TABLE Customer (
     LastName VARCHAR(50) NOT NULL,
     Email VARCHAR(50) UNIQUE NOT NULL,
     PhoneNumber VARCHAR(15) NOT NULL
+)
+
+
+-- Create Location table
+CREATE TABLE Location (
+    LocationID INT PRIMARY KEY IDENTITY(1,1),
+    LocationName VARCHAR(100) NOT NULL,
+    Address VARCHAR(200) NOT NULL
 )
 
 
@@ -20,14 +35,6 @@ CREATE TABLE Car (
 )
 
 
--- Create Location table
-CREATE TABLE Location (
-    LocationID INT PRIMARY KEY IDENTITY(1,1),
-    LocationName VARCHAR(100) NOT NULL,
-    Address VARCHAR(200) NOT NULL
-)
-
-
 -- Create Booking table
 CREATE TABLE Booking (
     BookingID INT PRIMARY KEY IDENTITY(1,1),
@@ -38,6 +45,7 @@ CREATE TABLE Booking (
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
     FOREIGN KEY (CarID) REFERENCES Car(CarID)
 )
+
 
 -- Create Payment table
 CREATE TABLE Payment (
