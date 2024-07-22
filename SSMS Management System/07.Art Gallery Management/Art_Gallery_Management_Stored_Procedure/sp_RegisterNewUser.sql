@@ -6,9 +6,9 @@ CREATE OR ALTER PROCEDURE sp_RegisterNewUser
     @UserPhone VARCHAR(15)
 AS
 BEGIN
-    IF NOT EXISTS (SELECT 1,2 FROM User WHERE Email = @UserEmail)
+    IF NOT EXISTS (SELECT 1,2 FROM [User] WHERE Email = @UserEmail)
     BEGIN
-        INSERT INTO User (FirstName, LastName, Email, Phone)
+        INSERT INTO [User] (FirstName, LastName, Email, Phone)
         VALUES (@UserFirstName, @UserLastName, @UserEmail, @UserPhone)
     END
 
