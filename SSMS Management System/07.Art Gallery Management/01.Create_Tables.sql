@@ -9,7 +9,8 @@ CREATE TABLE ArtGallery (
 
 CREATE TABLE Artist (
     ArtistID INT PRIMARY KEY IDENTITY(1,1),
-    Name VARCHAR(100) NOT NULL,
+    FistName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
     Bio VARCHAR(500),
     Achievements VARCHAR(500)
 ) 
@@ -23,9 +24,10 @@ CREATE TABLE Art (
     FOREIGN KEY (ArtistID) REFERENCES Artist(ArtistID)
 ) 
 
-CREATE TABLE User (
+CREATE TABLE [User] (
     UserID INT PRIMARY KEY IDENTITY(1,1),
-    Name VARCHAR(100) NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
     Email VARCHAR(100) UNIQUE NOT NULL,
     Phone VARCHAR(15) NOT NULL
 ) 
@@ -37,7 +39,7 @@ CREATE TABLE Sale (
     Amount DECIMAL(10, 2) NOT NULL,
     SaleDate DATE NOT NULL,
     FOREIGN KEY (ArtID) REFERENCES Art(ArtID),
-    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    FOREIGN KEY (UserID) REFERENCES [User](UserID)
 ) 
 
 CREATE TABLE Enquiry (
@@ -46,6 +48,6 @@ CREATE TABLE Enquiry (
     GalleryID INT NOT NULL,
     Message VARCHAR(1000),
     EnquiryDate DATE NOT NULL,
-    FOREIGN KEY (UserID) REFERENCES User(UserID),
+    FOREIGN KEY (UserID) REFERENCES [User](UserID),
     FOREIGN KEY (GalleryID) REFERENCES ArtGallery(GalleryID)
 ) 
