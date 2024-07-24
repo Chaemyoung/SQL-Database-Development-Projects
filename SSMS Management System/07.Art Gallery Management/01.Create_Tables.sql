@@ -6,6 +6,8 @@ CREATE TABLE ArtGallery (
     NumberOfArtists INT NOT NULL,
     NumberOfArts INT NOT NULL
 ) 
+CREATE INDEX IX_ArtGallery_Date ON ArtGallery ([Date])
+
 
 CREATE TABLE Artist (
     ArtistID INT PRIMARY KEY IDENTITY(1,1),
@@ -14,6 +16,8 @@ CREATE TABLE Artist (
     Bio VARCHAR(500),
     Achievements VARCHAR(500)
 ) 
+CREATE INDEX IX_Artist_ArtistID ON Artist(ArtistID)
+
 
 CREATE TABLE Art (
     ArtID INT PRIMARY KEY IDENTITY(1,1),
@@ -23,6 +27,9 @@ CREATE TABLE Art (
     ArtistID INT NOT NULL,
     FOREIGN KEY (ArtistID) REFERENCES Artist(ArtistID)
 ) 
+CREATE INDEX IX_Art_ArtistID ON Art(ArtistID)
+CREATE INDEX IX_Art_ArtType ON Art ([Type])
+
 
 CREATE TABLE [User] (
     UserID INT PRIMARY KEY IDENTITY(1,1),
@@ -31,6 +38,8 @@ CREATE TABLE [User] (
     Email VARCHAR(100) UNIQUE NOT NULL,
     Phone VARCHAR(15) NOT NULL
 ) 
+CREATE INDEX IX_User_UserID ON [User](UserID)
+
 
 CREATE TABLE Sale (
     SaleID INT PRIMARY KEY IDENTITY(1,1),
@@ -41,6 +50,8 @@ CREATE TABLE Sale (
     FOREIGN KEY (ArtID) REFERENCES Art(ArtID),
     FOREIGN KEY (UserID) REFERENCES [User](UserID)
 ) 
+CREATE INDEX IX_Sale_ArtID_GalleryID ON Sale (ArtID, GalleryID)
+
 
 CREATE TABLE Enquiry (
     EnquiryID INT PRIMARY KEY IDENTITY(1,1),
@@ -51,3 +62,4 @@ CREATE TABLE Enquiry (
     FOREIGN KEY (UserID) REFERENCES [User](UserID),
     FOREIGN KEY (GalleryID) REFERENCES ArtGallery(GalleryID)
 ) 
+CREATE INDEX IX_Enquiry_UserID_GalleryID ON Enquiry (UserID, GalleryID)
