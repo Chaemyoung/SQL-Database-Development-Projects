@@ -63,3 +63,9 @@ CREATE TABLE Enquiry (
     FOREIGN KEY (GalleryID) REFERENCES ArtGallery(GalleryID)
 ) 
 CREATE INDEX IX_Enquiry_UserID_GalleryID ON Enquiry (UserID, GalleryID)
+
+
+CREATE TABLE UserRole (
+    RoleID INT PRIMARY KEY,
+    RoleName NVARCHAR(50) NOT NULL
+)
