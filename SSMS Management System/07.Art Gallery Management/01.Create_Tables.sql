@@ -69,3 +69,12 @@ CREATE TABLE UserRole (
     RoleID INT PRIMARY KEY,
     RoleName NVARCHAR(50) NOT NULL
 )
+
+
+CREATE TABLE UserRoleMapping (
+    UserID INT,
+    RoleID INT,
+    PRIMARY KEY (UserID, RoleID),
+    FOREIGN KEY (UserID) REFERENCES [User](UserID),
+    FOREIGN KEY (RoleID) REFERENCES UserRole(RoleID)
+)
