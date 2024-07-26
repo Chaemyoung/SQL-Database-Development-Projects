@@ -27,3 +27,9 @@ INSERT INTO Sale (ArtID, UserID, Amount, SaleDate) VALUES
 INSERT INTO Enquiry (UserID, GalleryID, Message, EnquiryDate) VALUES
 (1, 1, 'Interested in purchasing art', '2024-08-01'),
 (2, 2, 'Looking for more information about the artists', '2024-09-15');
+
+-- Inserting data into UserRole table
+INSERT INTO UserRole (RoleID, RoleName) VALUES 
+(1, 'Admin'), 
+(2, 'Artist'), 
+(3, 'Visitor')
