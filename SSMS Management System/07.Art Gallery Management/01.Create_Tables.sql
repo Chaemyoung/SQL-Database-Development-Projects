@@ -78,3 +78,14 @@ CREATE TABLE UserRoleMapping (
     FOREIGN KEY (UserID) REFERENCES [User](UserID),
     FOREIGN KEY (RoleID) REFERENCES UserRole(RoleID)
 )
+
+
+CREATE TABLE ArtAudit (
+    AuditID INT IDENTITY(1,1) PRIMARY KEY,
+    ArtID INT,
+    ChangeType NVARCHAR(10),
+    OldValue NVARCHAR(4000),
+    NewValue NVARCHAR(4000),
+    ChangedBy NVARCHAR(200),
+    ChangedOn DATETIME DEFAULT GETDATE()
+)
