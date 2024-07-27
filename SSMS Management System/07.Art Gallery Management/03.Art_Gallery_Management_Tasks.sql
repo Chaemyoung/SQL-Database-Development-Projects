@@ -17,7 +17,7 @@ GROUP BY a.Name
 SELECT g.Location, g.Venue, u.Name, u.Email
 FROM ArtGallery g
 INNER JOIN Enquiry e ON g.GalleryID = e.GalleryID
-INNER JOIN User u ON e.UserID = u.UserID
+INNER JOIN [User] u ON e.UserID = u.UserID
 ORDER BY g.Location, g.Venue, u.Name
 
 
@@ -32,5 +32,14 @@ GROUP BY g.Location, g.Venue
 SELECT art.Title, art.Type, art.Medium, u.Name AS Buyer, s.Amount, s.SaleDate
 FROM Art art
 INNER JOIN Sale s ON art.ArtID = s.ArtID
-INNER JOIN User u ON s.UserID = u.UserID
+INNER JOIN [User] u ON s.UserID = u.UserID
 ORDER BY art.Title
+
+
+-- 6)  Trends over time, most popular artists, and most viewed artworks
+SELECT YEAR(g.[Date]) AS Year,MONTH(g.[Date]) AS Month, COUNT(a.ArtID) AS TotalArtworksDisplayed, SUM(s.Amount) AS TotalSales
+FROM ArtGallery g
+INNER JOIN Art a ON g.GalleryID = a.GalleryID
+INNER JOIN Sale s ON a.ArtID = s.ArtID
+GROUP BY YEAR(g.[Date]), MONTH(g.[Date])
+ORDER BY Year, Month;
