@@ -89,3 +89,13 @@ CREATE TABLE ArtAudit (
     ChangedBy NVARCHAR(200),
     ChangedOn DATETIME DEFAULT GETDATE()
 )
+
+
+CREATE TABLE PaymentTransaction (
+    TransactionID INT IDENTITY(1,1) PRIMARY KEY,
+    UserID INT,
+    Amount DECIMAL(10, 2),
+    PaymentDate DATETIME DEFAULT GETDATE(),
+    PaymentMethod NVARCHAR(50),
+    FOREIGN KEY (UserID) REFERENCES [User](UserID)
+)
