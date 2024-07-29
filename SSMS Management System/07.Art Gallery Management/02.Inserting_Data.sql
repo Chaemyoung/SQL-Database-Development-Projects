@@ -33,3 +33,7 @@ INSERT INTO UserRole (RoleID, RoleName) VALUES
 (1, 'Admin'), 
 (2, 'Artist'), 
 (3, 'Visitor')
+
+-- Inserting data into PaymentTransaction table
+INSERT INTO PaymentTransaction (UserID, Amount, PaymentMethod)
+VALUES (1, 150.00, 'Credit Card');
