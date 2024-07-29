@@ -51,6 +51,7 @@ CREATE TABLE Sale (
     FOREIGN KEY (UserID) REFERENCES [User](UserID)
 ) 
 CREATE INDEX IX_Sale_ArtID_GalleryID ON Sale (ArtID, GalleryID)
+CREATE INDEX IX_Sale_SaleDate_Amount ON Sale (SaleDate, Amount)
 
 
 CREATE TABLE Enquiry (
