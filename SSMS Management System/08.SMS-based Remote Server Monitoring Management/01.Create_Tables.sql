@@ -1,0 +1,44 @@
+CREATE TABLE [User] (
+    UserID INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL UNIQUE,
+    PasswordHash NVARCHAR(255) NOT NULL,
+    PhoneNumber NVARCHAR(15) NOT NULL,
+    Email NVARCHAR(100) NOT NULL
+)
+
+
+CREATE TABLE Server (
+    ServerID INT IDENTITY(1,1) PRIMARY KEY,
+    ServerName NVARCHAR(100) NOT NULL,
+    IPAddress NVARCHAR(15) NOT NULL UNIQUE,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'Operational'
+)
+
+
+CREATE TABLE UserServerMapping (
+    UserID INT,
+    ServerID INT,
+    PRIMARY KEY (UserID, ServerID),
+    FOREIGN KEY (UserID) REFERENCES [User](UserID),
+    FOREIGN KEY (ServerID) REFERENCES Server(ServerID)
+)
+
+
+CREATE TABLE Alert (
+    AlertID INT IDENTITY(1,1) PRIMARY KEY,
+    ServerID INT,
+    AlertType NVARCHAR(50) NOT NULL,
+    AlertMessage NVARCHAR(1000) NOT NULL,
+    AlertDate DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (ServerID) REFERENCES Server(ServerID)
+)
+
+
+CREATE TABLE Notification (
+    NotificationID INT IDENTITY(1,1) PRIMARY KEY,
+    UserID INT,
+    AlertID INT,
+    SentDate DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (UserID) REFERENCES [User](UserID),
+    FOREIGN KEY (AlertID) REFERENCES Alert(AlertID)
+)
