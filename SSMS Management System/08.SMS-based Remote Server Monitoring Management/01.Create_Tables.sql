@@ -1,17 +1,17 @@
 CREATE TABLE [User] (
     UserID INT IDENTITY(1,1) PRIMARY KEY,
-    Username NVARCHAR(50) NOT NULL UNIQUE,
-    PasswordHash NVARCHAR(255) NOT NULL,
-    PhoneNumber NVARCHAR(15) NOT NULL,
-    Email NVARCHAR(100) NOT NULL
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    PasswordHash VARCHAR(255) NOT NULL,
+    PhoneNumber VARCHAR(15) NOT NULL,
+    Email VARCHAR(100) NOT NULL
 )
 
 
 CREATE TABLE Server (
     ServerID INT IDENTITY(1,1) PRIMARY KEY,
-    ServerName NVARCHAR(100) NOT NULL,
-    IPAddress NVARCHAR(15) NOT NULL UNIQUE,
-    Status NVARCHAR(50) NOT NULL DEFAULT 'Operational'
+    ServerName VARCHAR(100) NOT NULL,
+    IPAddress VARCHAR(15) NOT NULL UNIQUE,
+    Status VARCHAR(50) NOT NULL DEFAULT 'Operational'
 )
 
 
@@ -27,8 +27,8 @@ CREATE TABLE UserServerMapping (
 CREATE TABLE Alert (
     AlertID INT IDENTITY(1,1) PRIMARY KEY,
     ServerID INT,
-    AlertType NVARCHAR(50) NOT NULL,
-    AlertMessage NVARCHAR(1000) NOT NULL,
+    AlertType VARCHAR(50) NOT NULL,
+    AlertMessage VARCHAR(1000) NOT NULL,
     AlertDate DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (ServerID) REFERENCES Server(ServerID)
 )
