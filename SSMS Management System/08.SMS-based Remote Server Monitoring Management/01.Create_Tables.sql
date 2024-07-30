@@ -5,6 +5,8 @@ CREATE TABLE [User] (
     PhoneNumber VARCHAR(15) NOT NULL,
     Email VARCHAR(100) NOT NULL
 )
+CREATE INDEX IX_User_PhoneNumber ON [User] (PhoneNumber)
+
 
 
 CREATE TABLE Server (
@@ -13,6 +15,8 @@ CREATE TABLE Server (
     IPAddress VARCHAR(15) NOT NULL UNIQUE,
     Status VARCHAR(50) NOT NULL DEFAULT 'Operational'
 )
+CREATE INDEX IX_Server_Status ON Server (Status)
+
 
 
 CREATE TABLE UserServerMapping (
