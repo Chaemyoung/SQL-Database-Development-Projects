@@ -6,5 +6,5 @@ AS
 BEGIN
     UPDATE Server
     SET Status = 'Down'
-    WHERE ServerID IN (SELECT DISTINCT ServerID FROM inserted);
-END;
+    WHERE ServerID IN (SELECT DISTINCT ServerID FROM inserted)
+END
