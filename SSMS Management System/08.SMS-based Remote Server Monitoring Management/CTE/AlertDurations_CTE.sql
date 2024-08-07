@@ -5,5 +5,5 @@ WITH AlertDurations_CTE AS (
     FROM Alert
 )
 SELECT ServerID, AVG(TimeBetweenAlerts) AS AvgTimeBetweenAlerts
-FROM AlertDurations
+FROM AlertDurations_CTE
 GROUP BY ServerID

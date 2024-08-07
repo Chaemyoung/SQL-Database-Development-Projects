@@ -5,5 +5,5 @@ WITH RecentAlerts_CTE AS (
     FROM Alert
 )
 SELECT ServerID, AlertType, AlertMessage, AlertDate
-FROM RecentAlerts
+FROM RecentAlerts_CTE
 WHERE RowNum = 1
