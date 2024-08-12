@@ -54,3 +54,22 @@ FROM Customer C
 INNER JOIN Card Cd ON C.CustomerID = Cd.CustomerID
 WHERE Cd.IsActive = 1 AND Cd.CardType = 'Credit'
 ORDER BY C.CustomerID, Cd.ExpirationDate
+
+
+-- 9) High-Value Transactions (Above $10,000)
+SELECT T.TransactionID,C.FirstName + ' ' + C.LastName AS CustomerName, 
+    A.AccountNumber, T.TransactionDate, T.TransactionType, T.Amount, T.Mode
+FROM [Transaction] T
+INNER JOIN Account A ON T.AccountID = A.AccountID
+INNER JOIN Customer C ON A.CustomerID = C.CustomerID
+WHERE T.Amount > 10000
+ORDER BY T.Amount DESC
+
+
+-- 10) Customers with Loans or Insurance Products
+SELECT C.CustomerID, C.FirstName + ' ' + C.LastName AS CustomerName,
+    CP.ProductType, CP.ProductDetails, CP.PurchaseDate, CP.Amount
+FROM Customer C
+INNER JOIN CustomerPurchase CP ON C.CustomerID = CP.CustomerID
+WHERE CP.ProductType IN ('Loan', 'Insurance')
+ORDER BY CP.PurchaseDate DESC
