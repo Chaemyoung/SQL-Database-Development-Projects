@@ -1,5 +1,5 @@
 -- CTE for Customers with Total Account Balance
-WITH CustomerTotalBalance AS (
+WITH CustomerTotalBalance_CTE AS (
     SELECT C.CustomerID, C.FirstName + ' ' + C.LastName AS CustomerName,
         SUM(A.AccountBalance) AS TotalBalance
     FROM Customer C
@@ -7,5 +7,5 @@ WITH CustomerTotalBalance AS (
     GROUP BY C.CustomerID, C.FirstName, C.LastName
 )
 SELECT CustomerID, CustomerName, TotalBalance
-FROM CustomerTotalBalance
+FROM CustomerTotalBalance_CTE
 ORDER BY TotalBalance DESC
