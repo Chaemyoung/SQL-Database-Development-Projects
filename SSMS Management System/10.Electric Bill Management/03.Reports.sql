@@ -27,3 +27,19 @@ INNER JOIN Account A ON B.AccountID = A.AccountID
 INNER JOIN Customer C ON A.CustomerID = C.CustomerID
 ORDER BY B.UnitsConsumed DESC
 OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY
+
+
+-- 4) Tariff Rate Changes Report
+SELECT V.VendorName, T.RatePerUnit, T.EffectiveFrom, T.EffectiveTo
+FROM Tariff T
+INNER JOIN Vendor V ON T.VendorID = V.VendorID
+ORDER BY V.VendorName, T.EffectiveFrom DESC
+
+
+-- 5) Customer Feedback Summary
+SELECT V.VendorName,
+    C.FirstName + ' ' + C.LastName AS CustomerName, F.FeedbackText, F.FeedbackDate
+FROM CustomerFeedback F
+INNER JOIN Customer C ON F.CustomerID = C.CustomerID
+INNER JOIN Vendor V ON F.VendorID = V.VendorID
+ORDER BY F.FeedbackDate DESC
