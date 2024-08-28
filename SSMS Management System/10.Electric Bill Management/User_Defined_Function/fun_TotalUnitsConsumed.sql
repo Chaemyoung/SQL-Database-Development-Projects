@@ -7,7 +7,7 @@ BEGIN
 
     SELECT @TotalUnits = SUM(B.UnitsConsumed)
     FROM Billing B
-    JOIN Account A ON B.AccountID = A.AccountID
+    INNER JOIN Account A ON B.AccountID = A.AccountID
     WHERE A.CustomerID = @CustomerID
 
     RETURN ISNULL(@TotalUnits, 0)
